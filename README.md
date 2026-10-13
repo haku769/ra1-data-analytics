@@ -9,6 +9,8 @@ Equipe: João Guilherme Marques Camargo
 
 Repositório:(https://github.com/haku769/ra1-data-analytics.git)
 
+(https://github.com/user-attachments/files/33410059/RA1.Documentacao.docx)
+
 Entrega: Curitiba • 13/10/2026 
 
 Seção 01: Problema e perguntas analíticas 

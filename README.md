@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 Projeto: Análise Exploratória do Comportamento de Consumo e Mercado Global de Vinhos (X-Wines) 
 
-Curso e turma: Ciência da Computação / Análise de Dados • Turma de PjBL • Período Letivo 
+Curso: Sistemas de Informação
 
 Professor ou professora: Marina de Lara 
 
@@ -19,7 +19,9 @@ Contexto e problema: O mercado global de vinhos movimenta bilhões de dólares a
 
 Objetivo e recorte: Estabelecer o pipeline de ingestão, avaliação de qualidade e higienização de um grande volume de dados de vinhos e avaliações, entregando um dataset limpo e estruturado. O escopo abrange o dataset global X-Wines, focando na análise relacional entre as características das vinícolas/vinhos (XWines_Full_100K_wines.csv) e as avaliações globais de usuários (XWines_Full_21M_ratings.csv). 
 
-Perguntas analíticas: | ID | Pergunta a investigar | Dados necessários | | :--- | :--- | :--- | | P1 | Como a distribuição das notas (Rating) varia de acordo com o país de origem (Country) e o tipo de vinho (Type)? | Rating, Country, Type (Tabelas de avaliações e vinhos) | | P2 | Qual é a correlação entre o teor alcoólico (ABV) e a nota média atribuída pelos usuários aos vinhos tintos e brancos? | ABV, Rating, Type | | P3 | Quais são as safras (Vintage) mais recorrentes nas avaliações de maior destaque (notas 4.5 e 5.0) nos últimos 15 anos? | Vintage, Rating | 
+Perguntas analíticas: P1 | Como a distribuição das notas (Rating) varia de acordo com o país de origem (Country) e o tipo de vinho (Type)? Rating, Country, Type (Tabelas de avaliações e vinhos) 
+P2 | Qual é a correlação entre o teor alcoólico (ABV) e a nota média atribuída pelos usuários aos vinhos tintos e brancos? | ABV, Rating, Type | 
+P3 | Quais são as safras (Vintage) mais recorrentes nas avaliações de maior destaque (notas 4.5 e 5.0) nos últimos 15 anos? | Vintage, Rating | 
 
 Viabilidade inicial: A base de dados X-Wines possui o volume e a granularidade necessários para responder às perguntas propostas, contendo chaves relacionais (WineID) consistentes. Identificou-se como lacuna preliminar a presença de registros com valores nulos em colunas descritivas secundárias (ex: Website), que foram devidamente tratadas sem prejuízo à integridade das análises. 
 
@@ -49,7 +51,7 @@ Unidade de observação: Cada linha representa uma avaliação individual (ratin
 
 Identificação dos registros: Chave primária composta por RatingID nas avaliações, vinculada à chave estrangeira WineID do cadastro de vinhos. 
 
-Dicionário inicial dos dados: | Atributo | Significado | Tipo e formato | Unidade ou domínio | | :--- | :--- | :--- | :--- | | RatingID | Identificador único da avaliação | Inteiro (int64) | Numérico sequencial | | UserID | Identificador único do usuário | Inteiro (int64) | Numérico sequencial | | WineID | Identificador único do vinho | Ponto flutuante inicial (float64) | Numérico | | Rating | Nota atribuída pelo usuário | Ponto flutuante (float64) | Intervalo de 1.0 a 5.0 | | ABV | Teor alcoólico do vinho | Ponto flutuante (float64) | Percentual (%) | | Vintage | Safra de produção do vinho | Ponto flutuante inicial (float64) | Anual (Ex: 2010) | | Date | Data e hora da avaliação | Objeto / Texto (object) | Formato de data misto | | Website | Sítio eletrônico da vinícola | Objeto / Texto (object) | URLs ou valores nulos | 
+Dicionário inicial dos dados: | Atributo | Significado | Tipo e formato | Unidade ou domínio  | RatingID | Identificador único da avaliação | Inteiro (int64) | Numérico sequencial | | UserID | Identificador único do usuário | Inteiro (int64) | Numérico sequencial | | WineID | Identificador único do vinho | Ponto flutuante inicial (float64) | Numérico | | Rating | Nota atribuída pelo usuário | Ponto flutuante (float64) | Intervalo de 1.0 a 5.0 | | ABV | Teor alcoólico do vinho | Ponto flutuante (float64) | Percentual (%) | | Vintage | Safra de produção do vinho | Ponto flutuante inicial (float64) | Anual (Ex: 2010) | | Date | Data e hora da avaliação | Objeto / Texto (object) | Formato de data misto | | Website | Sítio eletrônico da vinícola | Objeto / Texto (object) | URLs ou valores nulos | 
 
 Diagnóstico de qualidade: | ID | Verificação e regra | Resultado observado | Evidência | | :--- | :--- | :--- | :--- | | Q1 | Verificação de valores ausentes (nulos) em todo o conjunto de dados | A coluna Website apresentou 630.011 registros nulos. Demais colunas críticas sem nulos estruturais. | analise_vinhos.ipynb (Célula 2) | | Q2 | Verificação de registros duplicados idênticos | Foram encontradas 0 linhas estritamente duplicadas. | analise_vinhos.ipynb (Célula 2) | | Q3 | Identificação de outliers e valores inválidos no teor alcoólico (ABV) | Presença de valores extremos/impossíveis, com mínimo de 0.0% e máximo de 50.0% de álcool. | analise_vinhos.ipynb (Célula 2) | | Q4 | Verificação de tipos de dados inadequados | As colunas WineID, Vintage constavam como float64 e Date como texto (object). | analise_vinhos.ipynb (Célula 2) | 
 

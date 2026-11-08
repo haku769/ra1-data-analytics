@@ -1,3 +1,13 @@
+# Dados brutos (excedem o limite do GitHub)
 XWines_Full_21M_ratings.csv
 XWines_Full_100K_wines.csv
-x_wines_preparado_amostra.csv
+ 
+# Ambiente e artefatos locais
+.venv/
+.ipynb_checkpoints/
+__pycache__/
+spark-warehouse/
+metastore_db/
+derby.log
+spark_ra2/
+ 

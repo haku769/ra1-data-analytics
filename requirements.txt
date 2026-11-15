@@ -1,6 +1,8 @@
-# Python 3.11 ou 3.12 recomendado (PySpark 3.5 não suporta oficialmente Python 3.13+)
-# Java 11 ou 17 instalado e JAVA_HOME configurado
+# Java 11 ou 17 instalado (o notebook localiza o JDK automaticamente no Windows)
+# No Windows: winutils.exe e hadoop.dll em C:\hadoop\bin
 pyspark==3.5.3
-pandas>=2.0
+setuptools
+pandas>=2.2
 matplotlib>=3.7
+scikit-learn>=1.5
 ipykernel
